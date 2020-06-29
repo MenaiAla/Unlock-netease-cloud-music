@@ -4,7 +4,7 @@ const self = chrome.runtime.id
 chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => {
 	match(request.match, ['qq'])
 	.then(song => sendResponse(song))
-	.catch(console.log)
+	.catch(err => new Error(err))
 	return true
 })
 
